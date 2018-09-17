@@ -1,0 +1,9 @@
+Critical Systems Engineering Lecture 2
+
+    Availability and reliablity are quantified
+    Safety and Security are judgments (not necessarily quantified)
+
+    ^These attributes are dependent
+    Safe systems depend on the system being available and operating reliably
+
+    
