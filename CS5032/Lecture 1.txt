@@ -1,0 +1,46 @@
+Critical Systems Engineering Lecture 1
+
+    ~MAIN TOPICS~
+
+       Critical socio-technical systems, System failure
+       System dependability, requirements Engineering
+       dependability requirements
+       dependability Engineering, fault tolerant system archictectures
+       Security Engineering
+       dependability assurance and -formal methods-
+          -done through reading (articles)
+      Human and organisational factors
+      Resilience Engineering
+
+    ~ASSESSMENT~
+
+      Coursework - 40%
+        Summary (week 8, Mon 5 November) - 50%
+        Presentation (week 10, Mon 19 November) - 40%
+        Participation (week 11, throughout) - 10%
+      Exam - 60%   
+
+    ~RECOMMENDED READING~
+        
+      Somerville's Software Engineering (10th)
+      
+    ~MAIN NOTES~
+
+        INCOSE definition of -system- is: 
+            -a construct or collection of different elements that together produce results not obtainable by the elements alone (e.g. a bicycle)
+                -elements can include people, hardware, software, facilities, policies, and documents (all things required to produce systems-level results)
+                -the results include system-level qualities, properties, characteristics, functions, behavior, and performance
+
+        CRITICAL SYSTEM ESSENTIALS
+
+            SAFETY - system should not harm people or system's environment
+            AVAILABILITY - system must be available to deliver services when requested
+            RELIABILITY - system must operate without serious failures
+            SECURITY - system must be able to protect itself and its data from malicious use
+            RESILIENCE - ability to resist and recover from damaging events           
+
+
+
+    ~~CASE STUDY - KEGWORTH AIR CRASH 1989~~
+
+    
