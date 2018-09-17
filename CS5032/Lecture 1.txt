@@ -37,10 +37,49 @@ Critical Systems Engineering Lecture 1
             AVAILABILITY - system must be available to deliver services when requested
             RELIABILITY - system must operate without serious failures
             SECURITY - system must be able to protect itself and its data from malicious use
-            RESILIENCE - ability to resist and recover from damaging events           
+            RESILIENCE - ability to resist and recover from damaging events
 
+        CLASSES OF CRITICAL Systems
+
+            Safety-critical systems
+                failure results in loss of life, injury or damage to the evnironment e.g. chemical plant protection system
+
+            Mission-critical systems
+                failure results in failure of some goal-directed activity e.g. spacecraft navigation
+
+            Business-critical systems
+                failure results in high economic losses e.g. banking
+
+            Infrastructure systems
+                failure results in loss of Infrastructure capability e.g. power
+
+        CRITICAL SYSTEMS STACK
+
+                    Critical System X     External Systems
+
+                        Operating Systems and middleware
+
+        SYSTEM DEPENDENCIES
+
+        Independent critical Systems
+            infrastructure,hardware is part of the system
+            system operation is not dependent on external systems
+            embedded control systems such as in medical devices
+
+        Critical Software systems
+            usually rely on commodity hardware/OS
+            System operation is dependent on external infrastructure provision
+            hopsital appts system
+
+        primary critical systems - systems where system failure leads directly to an incident that has an associated loss of some kind
+        secondary critical systems - systems whose failure may but need not lead to fialure in an associated system that then leads to loss of some kind
+
+        certification costs can exceed dev costs
 
 
     ~~CASE STUDY - KEGWORTH AIR CRASH 1989~~
 
     
+    engine is a system inside the system of the plane
+    engine failure/not displayed well enough on dials/insufficient training
+    CAA did not accept any of the suggestions
