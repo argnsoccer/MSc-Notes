@@ -15,3 +15,5 @@ PRACTICAL 1 - 3600 word essay (min is >2/3 | max is 3600)
     Conclusion/Summary
     References/Biblio
 
+Searle's Chinese Room should be included
+
