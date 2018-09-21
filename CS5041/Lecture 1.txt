@@ -1,1 +1,19 @@
 CS5041 Intro lecture
+
+Assessed 100% practically
+    last one is special project where we choose the tech
+
+Phidgets
+Android
+Arduino
+3D Printing/creativity
+3D Sensing
+
+HCI:
+    area of research - understand how people and computers relate to each other
+    area of engineering - build better interfaces to improve people's lives/society
+    an activity that companies sell/offer/perform to create better services/products
+
+Abstraction is necessary to interface effectively with tech
+Balance between power and Abstraction
+trade-off between simplicity and power
