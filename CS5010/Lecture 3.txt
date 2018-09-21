@@ -1,0 +1,15 @@
+AI Lecture 3
+
+Symbolic Tree Search
+
+Mind: Tree Search
+
+AI Process problem
+
+root t0 leaf - find leaf node as solution to problem we are after
+
+Who won the Loebner Prize in 2007? 2008-17?
+What major similarities and differences are there between the winners in these years?
+
+Alan Turing - Mind, vol LIX, number 236 (computers and thought)
+
