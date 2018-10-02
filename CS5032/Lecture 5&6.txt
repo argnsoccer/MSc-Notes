@@ -1,0 +1,11 @@
+Funcitonal requirements - what is it going to do
+
+Think about what the stakeholders are getting out of the system
+
+    figure out conflicting requirements 
+
+In critical systems, building evidence of stopping concerns is important to garner accreditation 
+
+Risk-driven requirements important for critical system
+
+risk in terms of safety is always called a hazard

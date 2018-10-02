@@ -1,0 +1,27 @@
+Search 1 & 2 Symbolic Tree Search Lecture
+
+MIND = TREE Search
+
+BRAIN = NETWORK
+
+Bidirectional search good if you have a specified goal node
+    If multiple goal states (AKA chess), need to have multiple goal nodes
+        defeats the purpose of bidirectional space/time complexity
+
+    checking for intersection - nontrivial
+        node storage to check for intersection (>= 1 direction)
+
+Uniform Cost search is like an inverse greedy search - take the smallest cost edge
+    If step cost > 0 then complete because zero-cost loop back to same state is avoided (always expanding, albeit conservatively)
+    optimal because shortest path is taken first
+    does not go down the branch necessarily... always takes shortest path from root
+
+A* search
+    heuristic algorithm
+    complete & optimal & optimally efficient (<-- not same as optimality)
+    REQUIREMENT - no overestimation of the future (or cost in the town examples)
+        make heuristic admissable
+    A* cost = uniform (past) cost + greedy (future) cost
+    f has no local extrema due to monotonicity (steadily rising due to the uniform cost portion of it)
+    
+
