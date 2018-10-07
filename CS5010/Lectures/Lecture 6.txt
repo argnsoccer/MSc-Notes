@@ -4,19 +4,6 @@ Network - goal state = weight config
 Planning vs Learning
 Rule Sequence vs Association
 
-References for practical:   
-                            Leibniz argument against mechanism (in Monadology axiom 17) - 1714 (only in context of the Chinese Room)
-                            Turing - Mind/Turing Test - 1950
-                            Lawrence Davis - telephone lines and offices - 1974 
-                            Ned Block - China Brain - 1978
-                            Searle - Chinese Room - 1980
-                            Penrose - emperor's new mind - 1989 - human consciousness is non-algorithmic
-                            Penrose - Shadows of the mind - 1994
-                            Neural Nets - Not given rules like chinese room - legitimately learning - big jump in AI
-                            Machine Learning - so easy to do - tensorflow/keras/pythong making it accessible to anyone
-                            Where is the jump from learning to "understanding?"
-                            As we learn more about the brain as a bioelectric &chemical machine, we also progress AI
-
 
 Aside - can we make AI "feel" hormones and emotions (amygdala, hippocampus)
 

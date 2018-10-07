@@ -1,0 +1,6 @@
+Rotation Sensor Range: {0.000, .9993}
+Sound Sensor Range: {50, 100} dB
+Temperature Sensor Range: {-50, 150} C
+Indoor Light Sensor Range: {0, 1000} Lux
+
+Device/Hub Serial Number: 280029

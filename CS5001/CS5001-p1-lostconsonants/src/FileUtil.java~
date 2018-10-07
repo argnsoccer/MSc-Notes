@@ -22,7 +22,7 @@ public class FileUtil {
             ArrayList<String> lines = new ArrayList<String>();
             String line;
             while ((line = br.readLine()) != null) {
-                lines.add(line.toLowerCase());//I made this lower case because I was getting errors with checking acronyms
+                lines.add(line.toLowerCase());
             }
             return lines;
         } catch (FileNotFoundException e) {

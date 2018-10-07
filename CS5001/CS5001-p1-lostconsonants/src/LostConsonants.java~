@@ -8,21 +8,26 @@ public class LostConsonants
         switch(args.length)
         {
             case 0:
-                System.out.println("Expected 2 command line arguments, but got 0.\nPlease provide the path to the dictionary file as the first argument and a sentence as the second argument.");
+                System.out.println("Expected 2 command line arguments, but got 0. \nPlease provide the path to the  dictionary file as the first argument and a sentence as the second argument.");
                 break;
 
             case 1:
-                System.out.println("Expected 2 command line arguments, but got 1.\nPlease provide the path to the dictionary file as the first argument and a sentence as the second argument.");
+                System.out.println("Expected 2 command line arguments and received 1. \nPlease provide the path to the dictionary file as the first argument and a sentence as the second argument.");
                 break;
 
             case 2:
                 boolean flag = false;
                 boolean flag2 = false;
-	        ArrayList<String> lines = FileUtil.readLines(args[0]);//dictionary is unique
+                ArrayList<String> lines = FileUtil.readLines(args[0]);//dictionary is unique
+		catch(IOException ex)
+		{
+		    System.out.println("Invalid dictionary, aborting.");
+		    System.exit(0);
+		}
                 String in = args[1].toLowerCase();
-                if(in.matches(".*[bcdfghjklmnpqrstvwxyz].*+"))//input string has something in it and has consonants
+                if(in.matches(".*[b-df-hj-np-tv-z].*+"))//input string has something in it and has consonants
                 {
-                    String words[] = in.split("([.,!?:;'\"-]|\\s)+");//create string array of the words without spaces or punctuation
+                    String words[] = in.split(" ");//create string array of the words without spaces
                     boolean inDict[] = new boolean[words.length];//create parallel array for flagging words as in dictionary before taking consonants out
                     
                     for(int x = 0; x < words.length; x++)//set parallel array as true if in dict
@@ -53,7 +58,7 @@ public class LostConsonants
                         {
                             StringBuilder inPhrase = new StringBuilder(words[i]);
                             String temp = String.valueOf(words[i].charAt(j));//create temp char and set to string because I want to use regex
-                            if(temp.matches(".*[bcdfghjklmnpqrstvwxyz].*+"))//if char is a consonant, delete and search dict
+                            if(temp.matches(".*[b-df-hj-np-tv-z].*+"))//if char is a consonant, delete and search dict
                             {
                                 inPhrase.deleteCharAt(j);
                                 if(lines.contains(inPhrase.toString()))//if in dictionary
@@ -108,7 +113,7 @@ public class LostConsonants
                 }
                 break;
             case 3:
-                System.out.println("Expected 2 command line arguments, but got 3.\nPlease provide the path to the dictionary file as the first argument and a sentence as the second argument.");
+                System.out.println("Expected 2 arguments, but got 3.\nPlease provide the path to the dictionary file as the first argument and a sentence as the second argument.");
                 break;
             
             default:
