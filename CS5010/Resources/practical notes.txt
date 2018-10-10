@@ -11,6 +11,22 @@ References for practical:
         By "necessary" we mean that any system that exhibits general intelligence will prove upon analysis to be a  physical symbol system. 
         By "sufficient" we mean that any physical symbol system of sufficient size can be organised to exhibit general intelligence.
         **** Intellectual issues in the history of artificial intelligence A Newell 1983 ***
+            Algorithmic vs Heuristic
+            "For a short while, one name for the field of AI was heuristic programming, reflecting, in part, a coordination with such subfields 
+            as linear programming and dynamic programming".
+            Search versus Expertise
+            heuristic -> knowledge-intensive programs (expert systems) (mid 1970s)
+            heuristic search (search of problem space - combinatorial) & 
+            search of system's memory for knowledge to guide the heuristic search 
+                (essentially a knowledge base - made to be accessed quickly (HashTable whatever)).
+
+           
+
+                
+
+
+                    
+
 
         Herb Simon [Simon 1984] defines learning as ‘... any change in a system that allows it to perform better 
         the second time on repetition of the same task or on another task drawn from the same population'
@@ -20,14 +36,56 @@ References for practical:
         PRINCIPLES OF NEURODYNAMICS. PERCEPTRONS AND THE THEORY OF BRAIN MECHANISMS 1962
         Michie's MENACE (tic-tac-toe machine using machine learning) - 1980s
 
+
+     1965-1975 (From 1983 A Newell)
+                Need for generality in AI, not power (could not do common sense, but were conquering well-defined difficult tasks) [McCarthy 1959]
+                mid 1960s goal shift towards generality and common sense -> using small constructred puzzles and problems to simulate everyday reasoning
+                    monkey-and-bananas task
+                1975 - expert systems took over a bit but it did not fully shift back, just "diminished and moved out of the limelight." 
+                    chess programs built on heuristic search principles, with emphasis on large amounts of search...
+                    alternative emphases never shut offices just diminish
+
+    1972 - terry winograd - Understanding Natural Language
+    combines heuristic search with knowledge base/Expertise
+        "The system contains a parser, a recognition grammar of English, programs for semantic analysis, 
+        and a general problem solving system. We assume that a computer cannot deal reasonably with language 
+        unless it can understand the subject it is discussing. Therefore, the program is given a detailed model 
+        of a particular domain. In addition, the system has a simple model of its own mentality. It can remember 
+        and discuss its plans and actions as well as carrying them out. It enters into a dialog with a person,
+        responding to English sentences with actions and English replies, asking for clarification when its heuristic
+        programs cannot understand a sentence through the use of syntactic, semantic, contextual, and physical knowledge. 
+        Knowledge in the system is represented in the form of procedures, rather than tables of rules or lists of patterns. 
+        By developing special procedural representations for syntax, semantics, and inference, we gain flexibility and power. 
+        Since each piece of knowledge can be a procedure, it can call directly on any other piece of knowledge in the system."
+
     Searle - Chinese Room - 1980 
         Lawrence Davis - telephone lines and offices - 1974 
         Ned Block - China Brain - 1978
 
+    One AI or Many? - 1988
+        Another example of why the evolution was slow leading up to the 2000s, because everyone was split on which was right
+        AI inherently contains neuroscience, philosophy, etc.
+        
+        learning vs symbolic systems
+        Marvin Minsky and Seymour Papert, Perceptrons: An Introduction to Computational Geometry(1969)
+            We do not know the true theory behind Perceptrons   
+                but Perceptrons help us do a lot now with neural nets, moving forward progress 
+                even without really having a mathematical logical system/theory behind it
+
+                "The current status of deep learning systems can be compared to the age of  steam  that  marked  
+                the  beginning  of  the  industrial  age.  The  steam engine  began  transforming  the  world
+                long  before  the  formulation  of the laws of thermodynamics. The massive technological advances that 
+                have shaped our modern world, however, would have been unthinkable without  thermodynamics.  
+                In  that  sense,  Minsky  and  Papert’s  message remains very relevant."
+
+  
+
+
+
     Penrose - emperor's new mind - 1989 - human consciousness is non-algorithmic
     Penrose - Shadows of the mind - 1994
 
-    Machine Learning - so easy to do - tensorflow/keras/pythong making it accessible to anyone
+    Machine Learning - so easy to do - tensorflow/keras/python making it accessible to anyone
         Where is the jump from learning to "understanding?"
 
     As we learn more about the brain as a bioelectric &chemical machine, we also progress AI
@@ -76,3 +134,6 @@ References for practical:
             and vast numbers of training examples"
 
             AGAIN Where is the jump from learning to "understanding?"
+
+    1991 - Python
+    2015 - keras (opensource neural net library) and tensorflow (opensource library for dataflow (symbolic math library - hearkening back))
