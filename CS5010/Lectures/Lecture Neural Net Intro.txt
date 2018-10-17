@@ -1,0 +1,6 @@
+Neural Net Intro
+
+Can Neural Nets or Symbolic AI provide intentional and meaningful behavior?
+
+Neural Nets - association, classification, recognition (how do they relate to one another?)
+

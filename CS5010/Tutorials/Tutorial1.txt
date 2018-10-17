@@ -1,0 +1,28 @@
+1.) cannibals and missionaries problem is a deep problem, making it harder to solve
+    
+
+2.) straight line greedy bfs works better than A*
+
+3.) d -> adding the blank to the manhattan distance makes the manhattan distance inadmissible due to overestimation
+        if don't add the blank into manhattan it could works
+
+    c -> always the same
+
+    e -> right
+
+    expand in same order as russel & norvig
+
+    is it possible to have an 8 puzzle state that leads to an infinite loop?
+        Yes, encounter a repeated state... subtree is the same as earlier state
+
+4.) a -> A* performs well where cost does not decrease monotonically always
+        Greedy bfs performs well in straight line (where cost decreases monotonically always)
+
+    b.) greedy non-optimal in false start & oscillation
+        superior to A* in straight line
+
+5.) depends on your opinion of "uninformed" search (r&n says uniform is uninformed)
+
+6.) a -> infinite state space and infinite paths
+    b -> visibility or straight line vertex-to-vertex or euclidean distance
+    
