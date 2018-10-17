@@ -4,3 +4,38 @@ Can Neural Nets or Symbolic AI provide intentional and meaningful behavior?
 
 Neural Nets - association, classification, recognition (how do they relate to one another?)
 
+Connectionism - Parallel Distributed Processing - Neural Nets (All same thing)
+    PDP - speed
+    learn by example
+    not really like the brain atm 
+    adaptable connections 
+
+Symbolic AI
+    Pros:
+        execute anything expressed as sequence of formal rules
+        Large amount of memory can be copied and retrieved accurately
+        processing is realtively fast and highly accurately
+    Cons:
+        maybe not everything can be expressed as following sequence of formal rules
+        retrieval of memories is brittle in being all or none
+        many real world situations are novel and require adaptation faster than pres-set actions
+
+Parallel vs serial
+    brain - 10e11 neurons and more connections and potential connections
+        performs better in vision, speech, motor control, facial recognition than sophisticated computer systems
+        organisation impleneted with artificial processors would be a very powerful system that may be able to perform tasks such as vision and sopeech (easy for humans)
+    
+Content Addressable Memory for flexible memory retrieval
+    memory retrieval is based on content not form (like humans)
+
+Commonly used activation functions
+    step function
+    sigmoid (differentiable to home in on what we want)
+
+feedforward architecture - supervised learning
+
+strictly layered - pass connections strictly forward not laterally (which when included is called a recurrent network)
+
+
+
+
