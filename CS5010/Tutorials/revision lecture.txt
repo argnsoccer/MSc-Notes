@@ -10,4 +10,11 @@ Search
     See practical 2, search tutorial, attacks on AI and more Searc
 Logic
     Wumpus World - know rules and basics know how to apply propositional logic (circuit and inference based)
+    convert propositional logic into CNF
+    know what unit and full resolution are
+    can apply DPLL and know conditions for unique solution
+    understand detective example for DPLL
+    have some idea about the limitations of propositional logic
+Machine Learning
     
+
