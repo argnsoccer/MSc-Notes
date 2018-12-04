@@ -1,0 +1,15 @@
+Practical 2:
+    research on chess, backgammon, Go
+    chess - symbolic ai look ahead and expert systems
+    backgammon - neural nets
+    one more suited to self play than the other
+
+
+Recurrent networks capable of creating internal states through cyclic connections
+    can "store" state through cycles (t-1 is input then it is output back at t)
+
+Feedforward nets only capable of I/O 
+
+deep learning in time as well as space
+
+

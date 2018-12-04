@@ -1,0 +1,13 @@
+Topics:
+Search
+    informed and uninformed heuristic techniques - EXPANSION OF NODES EXACTLY RIGHT ****
+    know ho wto describe coplexity orders of each techniques
+    explain completeness and optimality properties of each
+    8-puzzle
+    A*search and why is complete, optimal, and optimally e3fficient
+    robotics - BUG, A*, RRTs
+    comparative strength and weakness of various techniques
+    See practical 2, search tutorial, attacks on AI and more Searc
+Logic
+    Wumpus World - know rules and basics know how to apply propositional logic (circuit and inference based)
+    

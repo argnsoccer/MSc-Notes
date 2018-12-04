@@ -1,63 +1,203 @@
 package com.example.andre.ideator;
 
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.RadioButton;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link IdeaFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link IdeaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class IdeaFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+public class IdeaFragment extends DialogFragment {
 
+
+    public static IdeaFragment newInstance(ArrayList<Idea> ideas, int position){
+        IdeaFragment frag = new IdeaFragment();
+        Bundle args = new Bundle();
+        args.putParcelableArrayList("ideas", ideas);
+        args.putInt("position", position);
+        frag.setArguments(args);
+
+        return frag;
+    }
     private OnFragmentInteractionListener mListener;
+
+
+    //https://developer.android.com/guide/topics/ui/dialogs#java
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        // Use the Builder class for convenient dialog construction
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        final View l = inflater.inflate(R.layout.dialog_layout, null);
+        final ArrayList<Idea> ideas = getArguments().getParcelableArrayList("ideas");
+        final int pos = getArguments().getInt("position");
+
+
+        builder.setMessage("Change Description or Choose Color")
+                .setView(l)
+                .setTitle("Edit Idea")
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        final EditText desc = (EditText) l.findViewById(R.id.description);
+                        final EditText title = (EditText) l.findViewById(R.id.title);
+                        EditText color = (EditText) l.findViewById(R.id.color);
+                        int[] colors = getResources().getIntArray(R.array.colors);
+                        switch(color.getText().toString()){
+
+                            case "1":
+                                ideas.get(pos).setColor(colors[0]);
+
+                                break;
+                            case "2":
+
+                                ideas.get(pos).setColor(colors[1]);
+                                break;
+
+                            case "3":
+
+                                ideas.get(pos).setColor(colors[2]);
+                                break;
+
+                            case "4":
+
+                                ideas.get(pos).setColor(colors[3]);
+                                break;
+
+                            case "5":
+
+                                ideas.get(pos).setColor(colors[4]);
+                                break;
+
+                            case "6":
+
+                                ideas.get(pos).setColor(colors[5]);
+                                break;
+
+                            case "7":
+
+                                ideas.get(pos).setColor(colors[6]);
+                                break;
+
+                            case "8":
+
+                                ideas.get(pos).setColor(colors[7]);
+                                break;
+
+                            case "9":
+
+                                ideas.get(pos).setColor(colors[8]);
+                                break;
+
+                            case "10":
+
+                                ideas.get(pos).setColor(colors[9]);
+                                break;
+
+                            case "11":
+
+                                ideas.get(pos).setColor(colors[10]);
+                                break;
+
+                            case "12":
+
+                                ideas.get(pos).setColor(colors[11]);
+                                break;
+                        }
+                        if(desc.getText().toString().length() >= 1){
+                            ideas.get(pos).setDesc(desc.getText().toString());
+                        }
+                        if(title.getText().toString().length() >= 1){
+                            ideas.get(pos).setTitle(title.getText().toString());
+                        }
+
+                        desc.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                // Fires right as the text is being changed (even supplies the range of text)
+                            }
+
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count,
+                                                          int after) {
+                                // Fires right before text is changing
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable s) {
+                                // Fires right after the text has changed
+                                ideas.get(pos).setDesc(desc.getText().toString());
+                            }
+                        });
+                        title.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                                // Fires right as the text is being changed (even supplies the range of text)
+                            }
+
+                            @Override
+                            public void beforeTextChanged(CharSequence s, int start, int count,
+                                                          int after) {
+                                // Fires right before text is changing
+                            }
+
+                            @Override
+                            public void afterTextChanged(Editable s) {
+                                // Fires right after the text has changed
+                                ideas.get(pos).setTitle(title.getText().toString());
+                                System.out.println("s: " + s.toString());
+                            }
+                        });
+
+
+
+
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        IdeaFragment.this.getDialog().cancel();
+                    }
+                })
+                .setNeutralButton("Delete", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        dialog.dismiss();
+                        ideas.remove(pos);
+
+                    }
+                });
+        // Create the AlertDialog object and return it
+
+        return builder.create();
+    }
+
+
 
     public IdeaFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment IdeaFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static IdeaFragment newInstance(String param1, String param2) {
-        IdeaFragment fragment = new IdeaFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override

@@ -1,0 +1,119 @@
+software in cars is safety-critical
+Fault injection and mutation testing improves efficiency and effectiveness of verification and validation of software
+    improvements:
+        identification of safety defects early
+
+
+
+testing software (which has been steadily increasing in size of code) generally accounts for 50% of dev cost
+ISO-26262 in automotive domain poses stringent requirements for development of safety critical applications and in particular on the testing processes forthis software.    
+    Qualifying software components includeS:
+        defining functional requirements
+        resource usage
+        predicting software behavior in failure and overload situations
+
+    process of qualifying software becomes easier with qualified software components (well-established products reused across projects)
+    the standard requires testing under normal operating conditions along with inserting faults in the system to determine how it reacts to abnormal inputs.
+     software components can comply with ISO 26262 requirements through the “proven in use” argument.
+
+ISO 26262 is derivative of IEC 61508, the generic functional safety standard for electrical and electronic (E/E) systems
+
+Because a public draft standard is available, lawyers treat ISO 26262 as the technical state of the art.
+    car producers liable for malfunction unless could not be detected by technical state of the art
+
+ISO-26262:
+    Provides an automotive safety lifecycle (management, development, production, operation, service, decommissioning) and supports tailoring the necessary activities during these lifecycle phases
+    Provides an automotive specific risk-based approach for determining risk classes (Automotive Safety Integrity Levels, ASILs)
+    Uses ASILs for specifying the item's necessary safety requirements for achieving an acceptable residual risk
+        The ASIL ask the question, “If a failure arises, what will happen to the driver and associated road users?"
+            P(Exposure) + Controllability + severity of failure = ASIL
+        ASIL assigned A->D, D having the strictest testing regulations and most safety critical processes
+    Provides requirements for validation and confirmation measures to ensure a sufficient and acceptable level of safety being achieved
+    adapted for the V-model of product development corresponding to the current practice in the industry
+    includes specifications for MBD and provides recommendations for using fault injection techniques for hardware integration and testing,software unit testing, software integration testing, hardware-software integration testing, system integration testing and vehicle integration testing.
+        does not specify anything on mutation testing but does recommend fault injection at various stages of testing
+            current standard practice in automotive industry is (mutation testing not widely adopted in the industry)
+    
+    safety case and argumentation process:
+        Item - The item representing a system or a function is defined. 
+        PHA - A Preliminary Hazard Analysis & Risk Assessment is done to assign an appropriate ASIL level. 
+        SG - Safety Goals are derived from the Hazard Analysis and they inherit the assigned ASIL level. 
+        FSR - Functional Safety Requirements are drawn such that the set Safety Goals are met. 
+        TSR - The Technical Safety Requirements are formulated describing how to implement FSR. 
+        Doc - Further development includes implementation, integration and documentation of safety cases. 
+
+Paper mostly talks about chapter 4, software validation
+
+
+The requirements from the ISO 26262 standard on using fault injection techniques is challenging since it relates to the development of complete functions rather than components of sub-components of software
+    fault injection is used but only at ECU or singular software system level, not function level.
+
+"The  current  state  of  art  testing  is  not  enough  for  detecting  safety  defects
+early  in  the  automotive  software  development  process  since  fault  injection  is
+done late in the development (when ECUs are being developed)"
+    makes spec-related defects difficult and costly to detect
+        paper argues detection should be done at the model level when ECU functionality is under design and relatively cheap to redesign
+        mutation testing should be used to assess adequacy of test cases
+
+"Software development in automotive sector in general follows the V process,
+where OEMs take the responsibility of requirement specification, system design,
+and integration/acceptance test. This is followed by the supplier, which develops
+the actual code that runs on ECUs. Although the code is tested at the supplier
+level (mainly unit testing), the OEMs are responsible for the final integration,
+system  and  acceptance  testing  to  ensure  that  the  given  implementation  of  a
+software (SW) meets its intended functional and safety goals/demands."
+
+    requirements->system design->component design->implementation->unit testing->integration testing->system testing
+    OEM->OEM->OEM->supplier->supplier->OEM->OEM
+
+        in this model, testing done late in the dev process so defects found late
+            late detection of defects still a problem - https://ieeexplore.ieee.org/document/6405374
+                    (The defect inflow profile presented in this study is presented in Figure 3 for reference, which exhibits a clear peak in number of open defects in the late stages of function development/testing.)
+
+    testing - incredibly resource intensive - accounts for 50% of cost or more when it is safety critical
+        https://dl.acm.org/citation.cfm?id=364617
+    
+Fault injection is widely used currently in experimental dependability evaluation
+    more used to assess hardware/prototypes but now going to be applied to behavioural models of software systems
+        use in software systems allows for early verification of intendended functionality and enhancing communication between different stakeholders
+
+    fault injection used at model level is at infancy but offers advantages in industry using MBD (model-based dev)
+
+Mutation testing - technique for assessing th.e adequacy of given test suite/set of test cases
+    injection of systematic, repeatable seeding of faults in large number thus generating number of copies of original software artefacts with artificial fault infestation (called mutants)
+    mutation adequacy score given based on percentage of mutations detected --> effectiveness of test suite/cases
+    mutants reflect characteristics of real faults nade by programmers and other related testing heuristics
+    mutation testing targets subset of faults: those which are close to correct version of program (with hope these will be enough to simulate all faults)
+        based on two fundamental hypotheses (DeMillo 78 - https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1646911&tag=1):
+            CPH (Competent Programmer Hypothesis) - coders competent at their job so will create programs close to correct version
+                only faults generated by several simple synctactic changes tested
+            Coupling Effect - complex errors are coupled to simple errors
+                "Test data that distinguishes all programs differing from a correct one by only simple errors is so sensitive that it also implicitly distinguishes more complex errors."
+                    No hope in proving effect ... merely empirical principle
+
+THE PAPERS APPROACH
+
+
+"A major challenge in successful argumentation of ISO-26262 compliance is
+to provide statistical evidence that SGs would not be violated during operation
+and doing this within reasonable testing efforts."
+
+a given system has common features:
+    x inputs
+    dependencies to y components/functions
+    z outputs
+    number of sub-units/modules within that implement functionality
+    n statements for handwritten code
+
+To verify and validate the functionality and ISO compliance using fault and mutation testing:
+    1) Assign or define the Functional Safety Requirements (FSRs) and Technical Safety Requirements (TSRs) for the z outputs of the given system/function in accordance to ISO 26262.
+    2) Use fault injection technique to inject common occurring defects and other theoretically possible fault conditions at the x inputs.
+    3) By studying the fault propagation of different injected faults at inputs and their  effect  on  outputs,  the  individual  faults  and  combinations  of  it  that violate the FSRs for given system can be noted.
+    4) Steps  (2)  &  (3)  should  also  be  done  to  test  and  validate  the  given  system/function dependencies on other functions/components.
+    5) Mutation approach is then used to inject faults (or cause mutations) to the n basic blocks of given functional model and assess the detection effectiveness of test suite/cases for possible implementation bugs.
+    6) The mutants which are not killed by given set of test cases/suits are examined for their effect on given functions FSRs, if the given mutation violates the SGs/FSRs then a suitable test case will be created to detect/kill such mutants i.e. detect such bugs in actual code
+
+Best Practices for early identification of defects:
+    Model evolution corresponding to different levels of software/product development.
+    Specification and testing for SGs, FSRs and TSRs on the behavioural models.
+    Identification of different types of defects/types of faults and at what stage they could be modelled/injected at models to ensure that models are build robust right from the start instead of adding fault tolerance in later stages of development

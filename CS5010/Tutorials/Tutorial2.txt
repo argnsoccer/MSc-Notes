@@ -1,0 +1,123 @@
+1. What are Russell and Norvig's circuit-based and inference-based agent types? How do they compare in 4 computational aspects? (5 mins)
+circuit-based: 
+    propositions bits in registers
+    update through signal propagation in logical circuits
+inference-based:
+    inference algorithms
+    keep track of the World
+    deduce hidden properties 
+
+    READ R&N
+
+    4 aspects: conciseness, computational efficiency, completeness, ease of construction
+        1.) conciseness - time is stored in memory in an inference based; in a circuit based agent only store present time so much more conciseness
+            efficiency - circuit based better because less storage than massive inference (exponential lookup for inference)
+            completeness - inference based is complete (circuit is not since it forgets previous moments)
+            ease of construction - easier to construct inference-based
+
+2.What are 3 example improvements of DPLL over TT-entails?(3 mins)
+
+    1.) early termination - do not need to sign all truth value combos
+    2.) pure symbol - (A v B) ^ (B v C) --> pure because B is same sign in all occurences
+            can always assign true values to pure symbols because trying to prove whole world is true
+    3.) unit clause - if you find a unit clause, e.g. (A), you can set it to be true
+
+    these 3 save from exhaustive enumeration
+
+    RESEARCH IN R&N
+
+3.What is the logical link between a valid formula and an unsatisfiable formula? (1 min)
+    P is valid iff ¬P is unsatisfiable
+
+
+4.Translate the following statements into propositional logic. Be sure to give at the start the intended meaning of each proposition. (8mins)
+(a) If there is smoke, then there is smoke. 
+    S => S
+(b) There is no smoke without fire. 
+    S => F
+(c) If it is true that there is no smoke without fire, then it is also true that if there is no smoke there is no fire.
+    
+(d) There is smoke or there is fire or there is no fire. 
+(e) Saying that the presence of smoke and heat implies fire is equivalent to saying that either there is no smoke without fire or there is no heat without fire. 
+    ((S ^ H) => F) <=> ((S => F) V (H => F))
+(f) If there is no smoke without fire, then if there is smoke and heat there is fire. 
+
+5.Unit propagation: 
+    (i) Why does a unit clause need to be set to true when it occurs in DPLL?(1min)
+        In order to give the statement a chance to be satisfiable
+    (ii) What effect can setting a unit clause to true have on other clauses?(1min)
+        it can make other clauses true or able to reduce
+
+6. Under what conditions is a solution found by DPLL known to be unique?(1 min)
+    trying all the imposed assignments and finding a solution from just one truth value
+    
+
+7.What is a tautology?(1 min)
+    all results are always true
+    truth by necessity
+    virtue of logical form
+
+8. Describe the 3 main steps in proving the following sentence is valid using boolean algebra, CNF,and resolution. Carry out the first step. (4 mins)
+¬(¬Tall ∧ Heavy)=>(Tall ⋁ ¬Heavy)
+
+1) negation (prove negation is unsatisfiable)
+2) put it into CNF ("ors" in the clause and "ands" joining them)
+3) resolve
+
+9.Example Problem(17mins)
+[Use the DPLL Detective Example Solution on StudRes.]
+There are three suspects for being a murderer: Adams, Brown, and Clark. Adams says "I 
+didn't do it. The victim was an old acquaintance of Brown's. But Clark hated him." 
+Brown states "I didn't do it. I didn't know the guy. Besides I was out of town all the 
+week." Clark says "I didn't do it. I saw Brown downtown with the victim that day; one of 
+them (Adams or Brown) must have done it." Assume that the two innocent men are telling the truth,
+but that the guilty man might not be. A logical agent detective might write out the relevant facts as sentences in 
+Propositional Logic, and create a CNF ready for use by DPLL in the 3steps below to see if the crime can be solved." 
+Explain the steps taken by the detective as per the questions below.
+
+Step 1(6 mins)
+Assign boolean variables to relevant propositions as follows
+    a: “Adams is guilty"
+    b: “Brown is guilty"
+    c: “Clark is guilty"
+    k: “Brown Knew the victim" 
+    h: “Clark Hated the victim" 
+    o: “Brown was Out of town”
+The slides for the example express the essence of what each of the men says for detection purposes as a sentence in Propositional Logic using only the above boolean 
+variables and the boolean operators. Why does the propositional logic in slide 5 represent that the guilty man may be lying?
+
+    Adam -- ¬a ^ k ^ h
+    Brown -- ¬b ^ ¬k ^ o
+    Clark -- ¬c ^ ¬o ^ (a V b)
+
+Step 2(4 mins)
+How do the clauses in Formalisation (4) of the Detective Example (p6) combine together to
+express the fact that one of the men is guilty?
+
+    a V b V c 
+
+    ¬(a ^ b)
+    ¬(a ^ c)
+    ¬(c ^ b)
+
+Step 3(7 mins)
+Convert the proposition associated with the fact that Brown may be lying from step 1
+into CNF, taking care to eliminate tautologies and duplicates. Do this by 
+    (i) creating a Boolean expression not in CNF, and then
+
+        A => C = ¬A v C
+        A = ¬b
+        C = ¬b ^ ¬k ^ o
+
+        b v (¬b ^ ¬k ^ o)
+
+    (ii) using Boolean algebra to create a CNF expression.
+
+10. The above associated slides then go on to show how DPLL uses the CNF to solve the crime.
+Explain how the assigned Clauses and Simplified Clauses columns arise on p14 of the slides. (2mins)
+
+11. Why is Wumpus World limited to about 100 x 100 squares in practice for inference-based propositional solvers? 
+What limitations of propositional logic does this exemplify? (3 mins)
+
+    Knowledge store would be way too huge (exponential growth)
+    implies space limitations - look up limitations listed in R&N

@@ -1,6 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/description"
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="Edit Description" />
+     <EditText
+        android:id="@+id/title"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="sans-serif"
+        android:hint="Edit Title"/>
+    <EditText
+        android:id="@+id/color"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="sans-serif"
+        android:hint="Choose a number for linking (1-12)"/>
+    <!--<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+        <!--<RadioButton android:id="@+id/pink"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Pink"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+        <!--<RadioButton android:id="@+id/red"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Red"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+        <!--<RadioButton android:id="@+id/orange"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Orange"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+        <!--<RadioButton android:id="@+id/yellow"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Yellow"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+        <!--<RadioButton android:id="@+id/chartreuse"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Chartreuse"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+        <!--<RadioButton android:id="@+id/green"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Green"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+        <!--<RadioButton android:id="@+id/spring_green"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Spring Green"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+        <!--<RadioButton android:id="@+id/cyan"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Cyan"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+        <!--<RadioButton android:id="@+id/azure"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Azure"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+        <!--<RadioButton android:id="@+id/blue"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Blue"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+        <!--<RadioButton android:id="@+id/violet"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Violet"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+        <!--<RadioButton android:id="@+id/magenta"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Magenta"-->
+            <!--android:onClick="onRadioButtonClicked"/>-->
+    <!--</RadioGroup>-->
+
+
 
 </LinearLayout>

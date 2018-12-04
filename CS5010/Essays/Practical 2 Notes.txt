@@ -1,0 +1,127 @@
+Feedforward network with one hidden layer
+    randomly initialize model/weights
+    feedforward (start from input and pass through the network and calculate actual output)
+    calculate loss function (usually sum of squares of absolute error)
+    calculate derivative of error (differentitate and talk about gradient descent/ascent going closer to weight goal)
+    backpropagate
+        forward propagation occurs by directly applying function
+        backpropagate occurs by knowing derivative of function
+            keep stack of function calls during forward pass and parameters
+            de-stack function calls and derivate loss function 
+            gradient descent/ascent... derivative shows which direction to tune... 
+    update based on learning rate (how quickly you want to step through the derivatives)
+        new weight = old weight - derivative rate*learning rate
+    iterate until convergence
+
+similarities and differences between deep learning nets and shallow feedforward nets:
+    similarities:
+        most both use feedforward architecture
+        only one hidden layer generally
+        learn in the same way
+
+    differences:
+        sometimes uses recurrent neural nets (cycles in architecture)
+        many hidden layers
+        allows for more performance from big data
+        large data 
+        feature learning - set of techniques that allows system to automatically discover representations needed for feature detection or classification from raw data
+            possible due to building the complex functions out of many simple ones (only possible due to many layers)
+            several layers build up progressively abstract representations of data
+            also makes it more difficult to understand just what is going on (same issues as last practical)
+
+
+backpropagation first used in RNNs
+
+"RNNs are very powerful dynamic systems, but training them has 
+proved to be problematic because the backpropagated gradients 
+either grow or shrink at each time step, so over many time steps they 
+typically explode or vanish"
+    look at exploding and vanishing gradients
+
+"The hierarchy of concepts allows the computer to learn complicated concepts by building them out of simpler ones. If we draw a graph showing how these concepts are built on top of each other, the graph is deep, with many layers. For this reason, we call this approach to AI deep learning."
+    Deep Learning - Ian Goodfellow, Yoshua Bengio, Aaron Courville
+
+Temporal Difference Learning - class of reinforcement learning methods that learn by bootstrapping current evaluation function
+    used in TD-Gammon to update weights after each turn to reduce difference between evaluation of previous turn board position and current board position
+    
+TD-Gammon - neural net using temporal difference learning (1992)
+    exclusively self-play 
+    slightly below level of top human players
+    "TD-Gammon's excellent positional play was undercut by occasional poor endgame play. The endgame requires a more analytical approach, sometimes with extensive lookahead. TD-Gammon's limitation to two-ply lookahead put a ceiling on what it could achieve in this part of the game. TD-Gammon's strengths and weaknesses were the opposite of symbolic artificial intelligence programs and most computer software in general: it was good at matters that require an intuitive "feel" but bad at systematic analysis. "
+    http://www.bkgm.com/articles/tesauro/tdl.html
+
+MONTE CARLO search (MCS) algorithms rely on random  simulations  to  evaluate  the  quality  of  states  or actions  in  sequential  decision  making  problems. 
+
+AlphaZero used same recurrent NN for chess and shogi as it did for Go and found that it needed no domain expertise or sophisticated domain adaptations to outperform Stockfish
+    evidence self-play can be used in all games
+
+Go lends itself better to self-play because rules of game are translationally invariant (matching weight sharing structure of convnets)
+    defined in terms of liberties corresponding to adjancecies between points on board (matching local strucutre of convnets)
+    rotationally and reflectionally symmetric (allowing for data augmentation and ensembling (training))
+    action space is simple (a stone may be placed at each possible location)
+    game outcomes are restricted to binary wins or losses
+
+Chess and Shogi less suited to neural net architecture
+    position dependent (pawns promote on 8th rank and move 2 forward on 2nd rank)
+    asymmetric (castling different on king and queenside and pawns movement)
+    include long-range interaction (queen cross the board to check)
+    action space includes all legal destinations for all players' pieces on board
+        Shogi even moreso because captured pieces are placed back on the board
+    results in draws as well as w/l
+
+AlphaZero - generic version of AlphaGo Zero
+    replaces the handcrafted knowledge and domain-specific augmentations
+    with deep neural networks and a tabula rasa reinforcement learning algorithm.
+    neural net is updated continously as opposed to waiting for each iteration to complete
+    most popular human openings independently discovered and played frequently during self-play
+    same algorithm applied to chess as to shogi and outperform state of the art 
+
+
+Deep reinforcement important in modern self-play 
+    
+unsupervised learning far more important in future since human and animal learning is largely unsupervised
+
+long-standing challenge of imperfect information in games AI
+
+HUNL Texas Hold'em (DeepStack) - https://static1.squarespace.com/static/58a75073e6f2e1c1d5b36630/t/58b7a3dce3df28761dd25e54/1488430045412/DeepStack.pdf
+    The imperfect information game HUNL is comparable in size to Go, with the number of decision points exceeding 10^160 (decision points in Go 10^170)
+    Competitive AI approaches in imperfect information games typically reason about the entire game and produce a complete strategy prior to play (14–16)
+    Counterfactual regret minimization (CFR) (14,17,18) - technique that uses self-play to do recursive reasoning through adapting its strategy against itselfover successive iterations
+        AlphaZero, etc.
+        If the game is too large to be solved directly, the common response is to solve a smaller, abstracted game
+            To play the original game, one translates situations and actions from the original game to the abstract game
+            as a result makes decision points go down to 10^14 but cannot beat pro humans
+            2015, Claudico lost by a huge margin to team of pro poker players (using this abstraction)
+            DeepStack takes different approach
+    DeepStack continues to use the recursive reasoning of CFR to handle information asymmetry. 
+        However, it does not compute and store a complete strategy prior to play and so has no need for explicit abstraction.  
+         Instead it considers each particular situation as it arises during play, but not in isolation.
+          It avoids reasoning about the entire remainder of the game by substituting the computation beyond a certain depth with a fast approximate estimate.
+            This approximation is like a "gut feeling" about the possible cards in player hands
+    DeepStack trained with deep learning using examples generated from random poker situations
+    The DeepStack algorithm is composed of three ingredients: 
+        1) a sound local strategy computation for the current public state
+        2) depth-limited lookahead using a learned value function to avoid reasoning to the end of the game
+        3) a restricted set of lookahead actions
+        At a conceptual level these three ingredients describe heuristic search, which is responsible for many
+        of AI’s successes in perfect information games. 
+    Until DeepStack, no theoretically sound application of heuristic search was known in imperfect information games.  
+    heart of heuristic search - “continual re-searching”
+        sound local search procedure is invoked whenever the agent must act without retaining any memory of how or why it acted to reach the current state. 
+    heart of DeepStack - continual re-solving
+        sound local strategy computation which only needs minimal memory of how and why it acted to reach the current public state.
+        does not maintain a strategy throughout the whole game by continually re=solving every time the program needs to act
+            never uses the strategy beyond next action
+            
+Alpha-Beta search versus deep learning
+alpha-beta search versus monte carlo
+
+alpha-beta pruning
+    stops completely evaluating a move when at least one possibility has been found that proves the move to be worse than a previously examined move
+    when applied to standard minimax tree, same tree but with pruned branches that would never influence final decision
+    
+    
+
+Deep Learning in games in general is best at producing "intuition" and less at what AI and computers were initially good at (extensive lookahead and analytical approach)
+
+            

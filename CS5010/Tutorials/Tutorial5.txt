@@ -1,0 +1,36 @@
+How does 20Q manage to resist being degraded by occasionally deliberately wrong answers?
+    As long as there are a majority correct answers the weights will be updated correctly
+        (minority regarded as noise)
+
+Suppose the f-cost for A* for a problem is the sum of the straight line lenghts between states from initial to leaf and leaf to future.
+Characterise geometrically the sort of path that runs through the leaf chosen next for expansion.
+    the straightest path towards the goal...want to deviate minimally
+
+Give one way in whichc checking for repeated states can help Greedy best-first search? What's a drawback?
+    1) False start
+        take the least future cost but that path was the worst one to take...versus another potentially longer path
+    2) Dead-end/oscillation
+        If we don't check for repeated states a state can choose the one it came from, e.g. A->B->A->B 
+
+    drawback is memory/storage
+
+Why is the ravine problem common in neural network training?
+    multiple I/O
+    multiple output units
+    each of these generate a gradient for a particular weight
+    If one target requires much more movement of weight, it will overtake the targets in the opposite directions (due to magnitude of target vector)
+        once this gets moved over, the targets which were opposite may know pull more than the others and push it back in the other direction and back and forth
+
+Why use analog target values different from 0 and 1 for gradient-based neural training with sigmoidal activation functions?
+    would set something more like .2 to .8 because you will never reach 0 or 1... set the range in the linear-like part of the sigmoidal functions
+
+What are the main steps for the BUG-0 algorithm for robot navgation? Why is the algorithm complete?
+    go to goal... follow obstacles until you can head toward the goal again
+    a map that has an obstacled that like goes around the goal
+
+            ----------
+            |   G    |
+            |-----   |
+               ______|
+                 S
+
